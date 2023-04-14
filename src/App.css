@@ -7,16 +7,17 @@
 
 .cell {
   margin: 10px;
-  min-height: 104px;
-  min-width: 137px;
+  height: 104px;
+  width: 137px;
   font-size: 40px;
+  overflow: hidden;
 }
 
 @media only screen and (max-width: 600px) {
   .cell {
     margin: 5px;
-    min-height: 53px;
-    min-width: 57px;
+    height: 53px;
+    width: 57px;
     font-size: 16px;
   }
 }
