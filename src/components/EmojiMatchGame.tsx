@@ -29,6 +29,7 @@ function EmojiMatchGame({ startNewGame, completedBoard }: EmojiMatchGameProps) {
                     nextBoard[firstGuess.x][firstGuess.y] = '';
                     nextBoard[secondGuess.x][secondGuess.y] = '';
                     setCurrentBoard(nextBoard);
+
                     setInProgress(false);
                 }, 750);
             } else {
@@ -38,19 +39,7 @@ function EmojiMatchGame({ startNewGame, completedBoard }: EmojiMatchGameProps) {
             setFirstGuess(null);
             setSecondGuess(null);
             setNumGuesses(numGuesses + 1);
-
         }
-
-        const nextBoard = JSON.parse(JSON.stringify(currentBoard));
-        if (firstGuess) {
-            nextBoard[firstGuess.x][firstGuess.y] = completedBoard[firstGuess.x][firstGuess.y];
-        }
-        if (secondGuess) {
-            nextBoard[secondGuess.x][secondGuess.y] = completedBoard[secondGuess.x][secondGuess.y];
-        }
-
-        setCurrentBoard(nextBoard);
-
     }, [firstGuess, secondGuess]);
 
     const revealEmoji = ({ x, y }: Guess) => {
@@ -63,6 +52,10 @@ function EmojiMatchGame({ startNewGame, completedBoard }: EmojiMatchGameProps) {
         } else if (!secondGuess) {
             setSecondGuess({ x, y })
         }
+
+        const nextBoard = JSON.parse(JSON.stringify(currentBoard));
+        nextBoard[x][y] = completedBoard[x][y];
+        setCurrentBoard(nextBoard);
     }
 
     return (
