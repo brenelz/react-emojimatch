@@ -59,22 +59,21 @@ function EmojiMatchGame({ startNewGame, completedBoard }: EmojiMatchGameProps) {
     }
 
     return (
-        <div>
+        <>
             {numCorrect === 8 && <p>Congrats! You have completed the game in <strong>{numGuesses}</strong> guesses! <button style={{ marginLeft: '10px' }} onClick={startNewGame}>New Game</button></p>}
-            {currentBoard.map((row, x) => (
-                <div key={x}>
-                    {row.map((emoji, y) => (
-                        <button
-                            key={y}
-                            className="cell"
-                            onClick={() => revealEmoji({ x, y })}
-                        >
-                            {emoji ? emoji : <div>&nbsp;</div>}
-                        </button>
-                    ))}
-                </div>
-            ))}
-        </div>
+
+            <div className="board">
+                {currentBoard.map((row, x) => row.map((emoji, y) => (
+                    <button
+                        key={y}
+                        className="cell"
+                        onClick={() => revealEmoji({ x, y })}
+                    >
+                        {emoji ? emoji : <>&nbsp;</>}
+                    </button>
+                )))}
+            </div>
+        </>
     )
 }
 

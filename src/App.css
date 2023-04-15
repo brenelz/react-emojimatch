@@ -3,21 +3,27 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.board {
+  max-width: 1280px;
+  display: grid;
+  grid-gap: clamp(5px, 5px, 20px);
+  aspect-ratio: 1.2;
+  width: 80vw;
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .cell {
-  margin: 10px;
-  height: 104px;
-  width: 137px;
-  font-size: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  font-size: clamp(1rem, 8vw, 12rem);
+  line-height: inherit;
   overflow: hidden;
-}
-
-@media only screen and (max-width: 600px) {
-  .cell {
-    margin: 5px;
-    height: 53px;
-    width: 57px;
-    font-size: 16px;
-  }
 }
