@@ -8,6 +8,10 @@
   align-items: center;
 }
 
+#root h1 {
+  font-size: 2em;
+}
+
 .board {
   max-width: 1280px;
   display: grid;
@@ -15,6 +19,8 @@
   aspect-ratio: 1.2;
   width: 80vw;
   grid-template-columns: repeat(4, 1fr);
+
+  max-height: 80vh;
 }
 
 .cell {
